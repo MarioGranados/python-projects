@@ -1,5 +1,5 @@
 import random
-##validate if user has entered a string or an int
+#validate if user has entered a string or an int
 #also make sure we return an int
 def validate_user_input():
     while True:
