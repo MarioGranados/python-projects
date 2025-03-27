@@ -1,7 +1,8 @@
 # Mario Granados
 # Everglades
 
-
+# class exhibit with name, temperature, and humidity
+# class Everglades that inherits from exhibit and has a water level
 class Exhibit:
     def __init__(self, name, temperature, humidity):
         self.name = name
@@ -32,7 +33,8 @@ class Exhibit:
     def __str__(self):
         return f"This is a(n): {self.name}\nThe Temperature is : {self.temperature}\nHumidity is: {self.humidity}%\n"
 
-
+# inherited class
+# this class has water level that will be adjusted via methods
 class Everglades(Exhibit):
     def __init__(self, name="everglades", temperature=80, humidity=90, water_level=0):
         super().__init__(name, temperature, humidity)
@@ -47,11 +49,12 @@ class Everglades(Exhibit):
     
     def get_name(self):
         return super().get_name()
-
+    # this method is pretty cool, grabs the original string and then adds the water level at the end
     def __str__(self):
         return f"{super().__str__()}The water level is: {self.water_level} inches\n"
 
-
+# main function
+# testing different things
 def main():
     exhibit = Exhibit("Dessert", 100, 0)
     print(exhibit)
@@ -64,6 +67,5 @@ def main():
     everglades.set_water_level(10)
     print(everglades)
     return
-
 
 main()
