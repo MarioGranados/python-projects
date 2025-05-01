@@ -28,32 +28,38 @@ class Animal:
     def get_img(self):
         return self.image_path
     
-# simple GUI
-root = tk.Tk()
-# title and window size
-root.title("Museum Catalog")
-root.geometry("700x500")
+    
+def main():
+    
+    # simple GUI
+    root = tk.Tk()
+    # title and window size
+    root.title("Museum Catalog")
+    root.geometry("700x500")
 
-# image path according to my program, change it for testing
-image_path = './grasshopper.jpg'
+    # image path according to my program, change it for testing
+    image_path = './grasshopper.jpg'
 
-# makes the code look cleaner, could of been a function but I wanted to keep it simple
-image = ImageTk.PhotoImage(Image.open(image_path))
+    # makes the code look cleaner, could of been a function but I wanted to keep it simple
+    image = ImageTk.PhotoImage(Image.open(image_path))
 
-# create object
-grasshopper = Animal("Grasshopper", "Everglades", "A grasshopper can jump up to 30 inches. "
-                                                  "That's roughly 20 times its body length.",
-                                                  image)
+    # create object
+    grasshopper = Animal("Grasshopper", "Everglades", "A grasshopper can jump up to 30 inches. "
+                                                    "That's roughly 20 times its body length.",
+                                                    image)
 
-# creates labels for the gui and adds the image
-name_label = tk.Label(root, text=grasshopper.get_name())
-name_label.pack()
-habitat_label = tk.Label(root, text=grasshopper.get_habitat())
-habitat_label.pack(pady=10)
-desc_label = tk.Label(root, text=grasshopper.get_desc())
-desc_label.pack()
-image_label = tk.Label(root, image=grasshopper.get_img())
-# adds padding for the image
-image_label.pack(padx=10, pady=10)
+    # creates labels for the gui and adds the image
+    name_label = tk.Label(root, text=grasshopper.get_name())
+    name_label.pack()
+    habitat_label = tk.Label(root, text=grasshopper.get_habitat())
+    habitat_label.pack(pady=10)
+    desc_label = tk.Label(root, text=grasshopper.get_desc())
+    desc_label.pack()
+    image_label = tk.Label(root, image=grasshopper.get_img())
+    # adds padding for the image
+    image_label.pack(padx=10, pady=10)
 
-root.mainloop()
+    root.mainloop()
+#kept opening up GUI while import so added this to prevent that
+if __name__ == "__main__":
+    main()
